@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Rent",
+    "account_id": "activo_bank",
+    "value": 705.0,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Internet",
+    "account_id": "activo_bank",
+    "value": 25.75,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Water",
+    "account_id": "activo_bank",
+    "value": 15.0,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Energy",
+    "account_id": "activo_bank",
+    "value": 35.57,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "ChatGPT",
+    "account_id": "activo_bank",
+    "value": 24.6,
+    "currency": "USD",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Cursor",
+    "account_id": "activo_bank",
+    "value": 20.0,
+    "currency": "USD",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Vodafone",
+    "account_id": "activo_bank",
+    "value": 28.5,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Cleaning",
+    "account_id": "activo_bank",
+    "value": 62.5,
+    "currency": "EUR",
+    "repeat_every_unit": "weeks",
+    "repeat_every": 3
+  },
+  {
+    "name": "T3",
+    "account_id": "activo_bank",
+    "value": 86.54,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Spotify",
+    "account_id": "activo_bank",
+    "value": 8.99,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Revolution food",
+    "account_id": "activo_bank",
+    "value": 41.0,
+    "currency": "EUR",
+    "repeat_every_unit": "weeks"
+  },
+  {
+    "name": "Contabilizei",
+    "account_id": "nubank_cnpj",
+    "value": 369.0,
+    "currency": "BRL",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Figma",
+    "account_id": "nubank_cnpj",
+    "value": 20.0,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Heroku - Teya",
+    "account_id": "nubank_cnpj",
+    "value": 24.0,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  },
+  {
+    "name": "Heroku - CNPJ",
+    "account_id": "nubank_cnpj",
+    "value": 14.0,
+    "currency": "EUR",
+    "repeat_every_unit": "months"
+  }
+]

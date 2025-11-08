@@ -1,0 +1,14 @@
+{
+  "accounts": [
+    {
+      "id": "activo_bank",
+      "name": "ActivoBank",
+      "currency": "EUR"
+    },
+    {
+      "id": "nubank_cnpj",
+      "name": "CNPJ",
+      "currency": "BRL"
+    }
+  ]
+}

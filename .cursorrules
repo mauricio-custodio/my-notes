@@ -1,0 +1,9 @@
+# Project rules
+
+## Python
+- The project must be set up so that it compiles successfully on any machine. This ensures consistency and avoids environment-specific issues.
+- Avoid comments and prints. Use only when explicitly told to, or when debugging a problem.
+- Keep notebooks **stateless & reproducible**: parameterize paths via env vars; avoid hidden state.
+- One chart per cell; **matplotlib** default styles; label axes & units; save figures to `reports/figures`.
+- Pin data deps in `pyproject.toml`; store small example datasets under `data/sample/`.
+- For heavy runs, provide a **CLI** (`typer`) entrypoint mirroring notebook steps.
