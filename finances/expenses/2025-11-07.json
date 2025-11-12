@@ -104,5 +104,21 @@
     "value": 14.0,
     "currency": "EUR",
     "repeat_every_unit": "months"
+  },
+  {
+    "name": "Brintellix - 5mg x 28comp",
+    "account_id": "activo_bank",
+    "value": 8.88,
+    "currency": "EUR",
+    "repeat_every": 28,
+    "repeat_every_unit": "days"
+  },
+  {
+    "name": "Venlafaxina - 37.5mg x 30comp",
+    "account_id": "activo_bank",
+    "value": 3.52,
+    "currency": "EUR",
+    "repeat_every": 30,
+    "repeat_every_unit": "days"
   }
 ]

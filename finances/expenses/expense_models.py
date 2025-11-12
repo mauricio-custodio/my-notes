@@ -23,6 +23,8 @@ class Expense:
     repeat_every: int = DEFAULT_REPEAT_EVERY
     monthly_value_eur: Optional[float] = None
     monthly_value: Optional[float] = None
+    yearly_value_eur: Optional[float] = None
+    yearly_value: Optional[float] = None
 
 
 def load_expenses(expense_file: str | Path, accounts_file: Optional[str | Path] = None) -> List[Expense]:
@@ -56,39 +58,31 @@ def load_expenses(expense_file: str | Path, accounts_file: Optional[str | Path] 
                 repeat_every=repeat_every if repeat_every is not None else DEFAULT_REPEAT_EVERY,
             )
 
-        expense.monthly_value = monthly_value(expense)
-        expense.monthly_value_eur = monthly_value(expense, "EUR")
-        
+        expense.monthly_value = normalize_value(expense, target_currency=None, target_time_unit="months")
+        expense.monthly_value_eur = normalize_value(expense, target_currency="EUR", target_time_unit="months")
+        expense.yearly_value = normalize_value(expense, target_currency=None, target_time_unit="years")
+        expense.yearly_value_eur = normalize_value(expense, target_currency="EUR", target_time_unit="years")
         expenses.append(expense)
 
     return expenses
 
-def monthly_value(expense: Expense, currency: Optional[str] = None) -> Optional[float]:
-    """Calculate the monthly value of an expense in the desired currency (default keeps original)."""
+def normalize_value(expense: Expense, target_currency: Optional[str] = None, target_time_unit: Optional[Literal["days", "weeks", "months", "years"]] = None) -> float:
+    fx_rate = get_fx_rate(expense.currency, target_currency)
+    time_factor = time_conversion_factor(expense.repeat_every, expense.repeat_every_unit, target_time_unit)
+    return expense.value * fx_rate * time_factor
 
-    if expense.value is None:
-        return None
+def time_conversion_factor(interval: float, interval_unit: Literal["days", "weeks", "months", "years"], target_unit: Literal["days", "weeks", "months", "years"]) -> float:
+    days_per_interval = interval * days_in_time_unit(interval_unit)
+    days_per_target_unit = days_in_time_unit(target_unit)
+    return days_per_target_unit / days_per_interval
 
-    monthly_factor = {
-        "years": 1 / 12,
-        "months": 1,
-        "weeks": 4.348,
-        "days": 30.44,
-    }
-
-    if expense.repeat_every <= 0:
-        return None
-
-    factor = monthly_factor.get(expense.repeat_every_unit)
-    if factor is None:
-        raise ValueError(f"Unsupported repeat unit: {expense.repeat_every_unit}")
-
-    base_monthly_value = expense.value * factor / expense.repeat_every
-    fx_rate = get_fx_rate(expense.currency, currency)
-
-    converted_value = base_monthly_value * fx_rate
-    return round(converted_value, 2)
-
+def days_in_time_unit(time_unit: Literal["days", "weeks", "months", "years"]) -> float:
+    return {
+        "days": 1,
+        "weeks": 7,
+        "months": 146097 / 400 / 12, # Gregorian mean year / 12
+        "years": 146097 / 400,       # Gregorian mean year
+    }[time_unit]
 
 def get_fx_rate(currency: Optional[str], target_currency: Optional[str]) -> float:
     """Get the FX rate for a given currency and target currency."""
@@ -138,7 +132,9 @@ def expenses_to_dataframe(expenses: List[Expense]) -> Any:
     column_order = [
         "name",
         "account_id",
+        "yearly_value_eur",
         "monthly_value_eur",
+        "yearly_value",
         "monthly_value",
         "currency",
         "value",
@@ -149,5 +145,14 @@ def expenses_to_dataframe(expenses: List[Expense]) -> Any:
     remaining_columns = [
         column for column in dataframe.columns if column not in ordered_columns
     ]
+
+    for col in [
+        "yearly_value_eur",
+        "monthly_value_eur",
+        "yearly_value",
+        "monthly_value",
+    ]:
+        if col in dataframe.columns:
+            dataframe[col] = dataframe[col].round(2)
 
     return dataframe.loc[:, ordered_columns + remaining_columns].reset_index(drop=True)
