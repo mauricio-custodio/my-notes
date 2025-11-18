@@ -61,7 +61,8 @@
     "account_id": "activo_bank",
     "value": 86.54,
     "currency": "EUR",
-    "repeat_every_unit": "months"
+    "repeat_every": 90,
+    "repeat_every_unit": "days"
   },
   {
     "name": "Spotify",

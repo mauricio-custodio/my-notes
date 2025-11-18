@@ -1,0 +1,17 @@
+[project]
+name = "my-notes"
+version = "0.1.0"
+description = "Personal notes "
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+]
+
+[tool.setuptools]
+packages = []
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
