@@ -10,7 +10,7 @@
   {
     "name": "Internet",
     "account_id": "activo_bank",
-    "category": "Utilities",
+    "category": "Housing",
     "value": 25.75,
     "currency": "EUR",
     "repeat_every_unit": "months"
@@ -18,7 +18,7 @@
   {
     "name": "Water",
     "account_id": "activo_bank",
-    "category": "Utilities",
+    "category": "Housing",
     "value": 15.0,
     "currency": "EUR",
     "repeat_every_unit": "months"
@@ -26,7 +26,7 @@
   {
     "name": "Energy",
     "account_id": "activo_bank",
-    "category": "Utilities",
+    "category": "Housing",
     "value": 35.57,
     "currency": "EUR",
     "repeat_every_unit": "months"
@@ -58,7 +58,7 @@
   {
     "name": "Cleaning",
     "account_id": "activo_bank",
-    "category": "Utilities",
+    "category": "Housing",
     "value": 62.5,
     "currency": "EUR",
     "repeat_every_unit": "weeks",
