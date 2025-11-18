@@ -17,6 +17,7 @@ _VALID_REPEAT_UNITS = {"days", "weeks", "months", "years"}
 class Expense:
     account_id: str
     name: str
+    category: Optional[str]
     value: Optional[float]
     currency: Optional[str]
     repeat_every_unit: Literal["days", "weeks", "months", "years"]
@@ -52,6 +53,7 @@ def load_expenses(expense_file: str | Path, accounts_file: Optional[str | Path] 
         expense = Expense(
                 account_id=raw.get("account_id"),
                 name=raw.get("name"),
+                category=raw.get("category"),
                 value=raw.get("value"),
                 currency=raw.get("currency"),
                 repeat_every_unit=raw.get("repeat_every_unit"),
@@ -131,6 +133,7 @@ def expenses_to_dataframe(expenses: List[Expense]) -> Any:
 
     column_order = [
         "name",
+        "category",
         "account_id",
         "yearly_value_eur",
         "monthly_value_eur",
