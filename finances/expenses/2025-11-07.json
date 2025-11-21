@@ -122,7 +122,8 @@
     "repeat_every_unit": "months"
   },
   {
-    "name": "Brintellix - 5mg x 28comp",
+    "name": "Brintellix",
+    "description": "5mg x 28comp",
     "account_id": "activo_bank",
     "category": "Health",
     "value": 8.88,
@@ -131,7 +132,8 @@
     "repeat_every_unit": "days"
   },
   {
-    "name": "Venlafaxina - 37.5mg x 30comp",
+    "name": "Venlafaxina",
+    "description": "37.5mg x 30comp",
     "account_id": "activo_bank",
     "category": "Health",
     "value": 3.52,
@@ -140,12 +142,22 @@
     "repeat_every_unit": "days"
   },
   {
-    "name": "Metil Folato - 1000mcg x 90comp",
+    "name": "Metilfolato",
+    "description": "1000mcg x 90comp",
     "account_id": "activo_bank",
     "category": "Health",
     "value": 30.44,
     "currency": "EUR",
     "repeat_every": 30,
+    "repeat_every_unit": "days"
+  },
+  {
+    "name": "Hair cut",
+    "account_id": "activo_bank",
+    "category": "Other expenses",
+    "value": 23.00,
+    "currency": "EUR",
+    "repeat_every": 60,
     "repeat_every_unit": "days"
   }
 ]

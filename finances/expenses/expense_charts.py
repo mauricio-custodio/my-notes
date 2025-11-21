@@ -89,7 +89,7 @@ def plot_expenses_waterfall(df):
     legend_handles = [mpatches.Patch(color=color, label=cat) for cat, color in category_color_map.items()]
     legend_handles.insert(0, mpatches.Patch(color="orange", label="TOTAL"))
 
-    ax.legend(handles=legend_handles, title="Categories", bbox_to_anchor=(1.02, 1), loc="upper left")
+    ax.legend(handles=legend_handles, title="Categories", bbox_to_anchor=(0.98, 0.02), loc="lower right")
 
     plt.tight_layout()
     plt.show(fig)
@@ -169,7 +169,7 @@ def plot_category_waterfall(df):
     legend_handles = [mpatches.Patch(color=color, label=cat) for cat, color in category_color_map.items()]
     legend_handles.insert(0, mpatches.Patch(color="orange", label="TOTAL"))
 
-    ax.legend(handles=legend_handles, title="Categories", bbox_to_anchor=(1.02, 1), loc="upper left")
+    ax.legend(handles=legend_handles, title="Categories", bbox_to_anchor=(0.98, 0.02), loc="lower right")
 
     plt.tight_layout()
     plt.show(fig)

@@ -17,6 +17,7 @@ _VALID_REPEAT_UNITS = {"days", "weeks", "months", "years"}
 class Expense:
     account_id: str
     name: str
+    description: Optional[str]
     category: Optional[str]
     value: Optional[float]
     currency: Optional[str]
@@ -53,6 +54,7 @@ def load_expenses(expense_file: str | Path, accounts_file: Optional[str | Path] 
         expense = Expense(
                 account_id=raw.get("account_id"),
                 name=raw.get("name"),
+                description=raw.get("description"),
                 category=raw.get("category"),
                 value=raw.get("value"),
                 currency=raw.get("currency"),
