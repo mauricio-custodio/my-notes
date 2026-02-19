@@ -147,7 +147,7 @@ def plot_category_waterfall(df):
 
     ax.set_xlabel('Monthly Value (EUR)')
     ax.set_ylabel('Expense Category')
-    ax.set_title('Monthly Expenses by Category Waterfall (EUR)')
+    ax.set_title('Monthly Expenses')
 
     for i, (bar, value, label_color) in enumerate(zip(bars, all_values, label_colors)):
         percent = int(round(100 * value / total_value)) if total_value > 0 else 0

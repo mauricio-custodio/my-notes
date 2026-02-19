@@ -1,11 +1,26 @@
 """Data structures and normalization helpers for the expense JSON format."""
 
 import json
+import re
 from dataclasses import dataclass
 from importlib import import_module
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 from typing import Literal
+
+
+def get_latest_expense_file(directory: Optional[Path] = None) -> Path:
+    """Find the most recent expense file matching YYYY-MM-DD.json pattern."""
+    if directory is None:
+        directory = Path(__file__).parent
+
+    date_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
+    expense_files = [f for f in directory.iterdir() if date_pattern.match(f.name)]
+
+    if not expense_files:
+        raise FileNotFoundError(f"No expense files found in {directory}")
+
+    return max(expense_files, key=lambda f: f.name)
 
 
 DEFAULT_REPEAT_EVERY_UNIT: Literal["days", "weeks", "months", "years"] = "months"
